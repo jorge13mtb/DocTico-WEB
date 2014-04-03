@@ -4,7 +4,12 @@ class UsuariosController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @usuarios = Usuario.all
+    if current_user.administrador?
+   	 @usuarios = Usuario.all
+    else
+	redirect_to usuario_path(current_user)
+    end
+    
   end
 
   def show
