@@ -1,0 +1,51 @@
+<h1>Nuevo Centro de Salud</h1>
+
+<%= form_for :centros, url: centros_path do |f| %>
+  
+<% if @centro.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@centro.errors.count, "error") %> no se puede guardar:</h2>
+    <ul>
+    <% @centro.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label :longitud %><br>
+    <%= f.text_field :longitud %>
+  </p>
+
+  <p>
+    <%= f.label :latitud %><br>
+    <%= f.text_field :latitud %>
+  </p>
+
+  <p>
+    <%= f.label :tipo_de_centro %><br>
+    <%= f.text_field :tipo %>
+  </p>
+
+  <p>
+    <%= f.label :horario %><br>
+    <%= f.text_area :horario %>
+  </p>
+
+  <p>
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Crear Centro de Salud", class: "btn btn-large btn-primary" %>
+  </p>
+<% end %>
+
+<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>

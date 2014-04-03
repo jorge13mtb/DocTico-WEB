@@ -1,0 +1,31 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @centro.nombre %>
+</p>
+ 
+<p>
+  <strong>Longitud:</strong>
+  <%= @centro.longitud %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @centro.latitud %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @centro.tipo %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @centro.horario %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @centro.descripcion %>
+</p>
+<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>
+| <%= link_to 'Editar Datos', edit_centro_path(@centro) %>

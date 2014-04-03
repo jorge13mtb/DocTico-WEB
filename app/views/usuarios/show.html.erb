@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>
+<p>
+  <strong>Nombre:</strong>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @usuario.email %>
+</p>
+
+    <% if current_user == @usuario%>
+      <%= link_to 'Edit', edit_usuario_path(@usuario) %> 
+      <%= link_to 'Agregar un centro', new_centro_path %>
+      <%= link_to 'Ver todos los centros', centros_path %>
+      <%= link_to 'Ver todos los usuarios', usuarios_path %>
+      <%= link_to "Sign out", signout_path, method: "delete" %>  
+    <% end %>
+
+<div class="span8">
+    <% if @usuario.centros.any? %>
+      <h3>Mis Centros de Salud (<%= @usuario.centros.count %>)</h3>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Longitud</th>
+    <th>Latitud</th>
+    <th>Tipo</th>
+    <th>Horario</th>
+    <th>Descripcion</th>
+  </tr>
+ <%= render @centros %> </table>
+    <% end %>
+  </div>

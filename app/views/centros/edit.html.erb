@@ -1,0 +1,50 @@
+<h1>Editando un centro</h1>
+ 
+<%= form_for :centro, url: centro_path(@centro), method: :patch do |f| %>
+  <% if @centro.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@centro.errors.count, "error") %> Hay errores:</h2>
+    <ul>
+    <% @centro.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label :longitud %><br>
+    <%= f.text_field :longitud %>
+  </p>
+
+  <p>
+    <%= f.label :latitud %><br>
+    <%= f.text_field :latitud %>
+  </p>
+
+  <p>
+    <%= f.label :tipo_de_centro %><br>
+    <%= f.text_field :tipo %>
+  </p>
+
+  <p>
+    <%= f.label :horario %><br>
+    <%= f.text_area :horario %>
+  </p>
+
+  <p>
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>

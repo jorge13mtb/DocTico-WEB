@@ -1,0 +1,29 @@
+<h1>Lista de los Centros de Salud</h1>
+ 
+<%= link_to 'Agregar Centro', new_centro_path %>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Longitud</th>
+    <th>Latitud</th>
+    <th>Tipo</th>
+    <th>Horario</th>
+    <th>Descripcion</th>
+  </tr>
+ 
+  <% @centros.each do |centro| %>
+    <tr>
+      <td><%= centro.nombre %></td>
+      <td><%= centro.longitud %></td>
+      <td><%= centro.latitud %></td>
+      <td><%= centro.tipo %></td>
+      <td><%= centro.horario %></td>
+      <td><%= centro.descripcion %></td>
+      <td><%= link_to 'Mostar Perfil', centro_path(centro) %></td>
+      <td><%= link_to 'Editar Informacion', edit_centro_path(centro) %></td>
+      <td><%= link_to 'Eliminar', centro_path(centro),
+                    method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+      </tr>
+  <% end %>
+</table>
