@@ -1,6 +1,10 @@
 <h1>DocTico</h1>
-<p>DocTico, la Aplicacion que te permite encontrar los centros de salud mas cercanos a mi poscision</p>
+<p>DocTico, la Aplicacion que te permite encontrar los centros de salud mas cercanos a tu poscision actual</p>
 
 <%= link_to 'Iniciar Sesion', signin_path %>
 
 <%= link_to 'Crear Cuenta', signup_path %>
+
+<% if !current_user.nil? %>
+  <%= link_to 'Mi Perfil', usuario_path(current_user) %>
+<% end %>
