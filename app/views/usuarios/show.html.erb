@@ -11,17 +11,17 @@
 </p>
 
     <% if current_user == @usuario%>
-      <%= link_to 'Edit', edit_usuario_path(@usuario) %> 
-      <%= link_to 'Agregar un centro', new_centro_path %>
-      <%= link_to 'Ver todos los centros', centros_path %>
+      <%= link_to 'Editar esta Cuenta', edit_usuario_path(@usuario) %> |-|
+      <%= link_to 'Agregar un nuevo Centro de Salud', new_centro_path %> |-|
+      <%= link_to 'Ver todos los Centros de Salud en DocTico', centros_path %> |-|
 
       <% if @current_user.administrador? %>
-        <%= link_to 'Ver todos los usuarios', usuarios_path %>
+        <%= link_to 'Ver todos los usuarios', usuarios_path %>|-|
       <% end %>
   
-      <%= link_to "Sign out", signout_path, method: "delete" %>  
+      <%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  |-|
 
-      <%= link_to "Eliminar Cuenta", @usuario, method: :delete,
+      <%= link_to "Eliminar esta Cuenta", @usuario, method: :delete,
                                   data: { confirm: "Esta seguro de eliminar la cuenta?" } %>
     <% end %>
 

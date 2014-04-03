@@ -1,4 +1,6 @@
-<h1>Editando un centro</h1>
+<%= link_to @current_user.nombre, usuario_path(current_user) %>
+
+<h1>Editando el centro de salud</h1>
  
 <%= form_for :centro, url: centro_path(@centro), method: :patch do |f| %>
   <% if @centro.errors.any? %>
@@ -43,8 +45,6 @@
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit 'Actualizar los Datos del Centro' %>
   </p>
 <% end %>
-
-<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>

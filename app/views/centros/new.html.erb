@@ -1,4 +1,6 @@
-<h1>Nuevo Centro de Salud</h1>
+<%= link_to @current_user.nombre, usuario_path(current_user) %>
+
+<h1>Nuevo Centro de Salud en <%= link_to 'DocTico', root_path %></h1>
 
 <%= form_for :centros, url: centros_path do |f| %>
   
@@ -44,8 +46,6 @@
   </p>
  
   <p>
-    <%= f.submit "Crear Centro de Salud", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Crear nuevo Centro de Salud"%>
   </p>
 <% end %>
-
-<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>

@@ -1,4 +1,6 @@
-<h1>Listing usuarios</h1>
+<%= link_to @current_user.nombre, usuario_path(current_user) %>
+
+<h1>Lista de Usuarios de <%= link_to 'DocTico', root_path %></h1>
 
 <table>
   <thead>
@@ -16,13 +18,13 @@
       <tr>
         <td><%= usuario.nombre %></td>
         <td><%= usuario.email %></td>
-        <td><%= link_to 'Show', usuario %></td>
+        <td><%= link_to 'Mostrar Perfil', usuario %></td>
 
         <% if !current_user.nil? %>
 
         <td>  <% if current_user.administrador? && !current_user?(usuario) %>
-        | <%= link_to "delete", usuario, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+        | <%= link_to "Eliminar esta Cuenta", usuario, method: :delete,
+                                  data: { confirm: "Esta seguro de eliminar esta cuenta?" } %>
         <% end %></td>
 
         <% end %>
@@ -31,7 +33,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>
+</table>
