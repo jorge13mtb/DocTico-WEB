@@ -1,4 +1,0 @@
-<h1>DocTico</h1>
-<p>Encontrar Doctores</p>
-
-<%= link_to "Ver todos los centros de salud", controller: "centros" %>
