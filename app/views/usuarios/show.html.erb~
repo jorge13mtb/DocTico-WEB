@@ -16,6 +16,9 @@
       <%= link_to 'Ver todos los centros', centros_path %>
       <%= link_to 'Ver todos los usuarios', usuarios_path %>
       <%= link_to "Sign out", signout_path, method: "delete" %>  
+
+      <%= link_to "Eliminar Cuenta", @usuario, method: :delete,
+                                  data: { confirm: "Esta seguro de eliminar la cuenta?" } %>
     <% end %>
 
 <div class="span8">

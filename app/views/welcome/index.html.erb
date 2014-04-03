@@ -3,7 +3,7 @@
 
 <%= link_to 'Iniciar Sesion', signin_path %>
 
-<%= link_to 'Crear Cuenta', signup_path %>
+<%= link_to 'Crear una Cuenta', signup_path %>
 
 <% if !current_user.nil? %>
   <%= link_to 'Mi Perfil', usuario_path(current_user) %>

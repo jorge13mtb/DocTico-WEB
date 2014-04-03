@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Ir a mi perfil', usuario_path(current_user) %>
+<%= link_to @current_user.nombre, usuario_path(current_user) %>
 <p>
   <strong>Nombre:</strong>
   <%= @usuario.nombre %>
@@ -14,7 +14,11 @@
       <%= link_to 'Edit', edit_usuario_path(@usuario) %> 
       <%= link_to 'Agregar un centro', new_centro_path %>
       <%= link_to 'Ver todos los centros', centros_path %>
-      <%= link_to 'Ver todos los usuarios', usuarios_path %>
+
+      <% if @current_user.administrador? %>
+        <%= link_to 'Ver todos los usuarios', usuarios_path %>
+      <% end %>
+  
       <%= link_to "Sign out", signout_path, method: "delete" %>  
 
       <%= link_to "Eliminar Cuenta", @usuario, method: :delete,
