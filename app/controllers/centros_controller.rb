@@ -3,6 +3,7 @@ class CentrosController < ApplicationController
 
 def new
   @centro = Centro.new
+  @prueba = Centro.all
 end
 
 def create
