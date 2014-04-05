@@ -1,4 +1,6 @@
 <h1>DocTico</h1>
+
+<h1 class="form-signin-heading">DocTico</h1>
 <p>DocTico, la Aplicacion que te permite encontrar los centros de salud mas cercanos a tu poscision actual</p>
 
 <%= link_to 'Iniciar Sesion', signin_path %>
@@ -8,3 +10,17 @@
 <% if !current_user.nil? %>
   <%= link_to 'Mi Perfil', usuario_path(current_user) %>
 <% end %>
+
+
+    <div class="container">
+
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+</div>
