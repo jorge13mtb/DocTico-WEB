@@ -27,11 +27,11 @@
     <div class="panel-heading">
       <h3 class="panel-title">
         <% if current_user == @usuario%>
-          <%= link_to 'Agregar un nuevo Centro de Salud', new_centro_path %> |-|
-          <%= link_to 'Ver todos los Centros de Salud en DocTico', centros_path %> |-|
+          <%= link_to 'Agregar un nuevo Centro de Salud', new_centro_path %> |    -    |
+          <%= link_to 'Ver todos los Centros de Salud en DocTico', centros_path %> |    -    |
 
           <% if @current_user.administrador? %>
-            <%= link_to 'Ver todos los usuarios', usuarios_path %>|-|
+            <%= link_to 'Ver todos los usuarios', usuarios_path %>
           <% end %>
         <% end %>
       </h3>
