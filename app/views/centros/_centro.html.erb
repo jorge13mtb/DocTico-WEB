@@ -7,10 +7,13 @@
       <td><%= centro.descripcion %></td>
 
     <% if current_user == @usuario%>
-      <td><%= link_to 'Mostar Perfil', centro_path(centro) %></td>
-      <td><%= link_to 'Editar Informacion', edit_centro_path(centro) %></td>
-      <td><%= link_to 'Eliminar', centro_path(centro),
-                    method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
-    <% end %>
 
-      </tr>
+      <td><%= link_to  edit_centro_path(centro) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+      <% end %></td>
+
+      <td><%= link_to centro_path(centro), :method => :delete, :confirm => "Esta seguro de eliminar??" do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %> </td> 
+    <% end %>
+   </tr>

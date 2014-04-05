@@ -1,0 +1,36 @@
+<%= link_to @current_user.nombre, usuario_path(current_user) %>
+
+<h1>Lista de Usuarios de <%= link_to 'DocTico', root_path %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.email %></td>
+        <td><%= link_to 'Mostrar Perfil', usuario %></td>
+
+        <% if !current_user.nil? %>
+
+        <td>  <% if current_user.administrador? && !current_user?(usuario) %>
+        | <%= link_to "Eliminar esta Cuenta", usuario, method: :delete,
+                                  data: { confirm: "Esta seguro de eliminar esta cuenta?" } %>
+        <% end %></td>
+
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</table>

@@ -1,4 +1,18 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
+
+
+
 
 <h1>Nuevo Centro de Salud en <%= link_to 'DocTico', root_path %></h1>
 

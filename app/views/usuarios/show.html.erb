@@ -1,56 +1,77 @@
-<p id="notice"><%= notice %></p>
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
-<p>
-  <strong>Nombre:</strong>
-  <%= @usuario.nombre %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @usuario.email %>
-</p>
+<nav class="navbar navbar-default" role="navigation">
 
-    <% if current_user == @usuario%>
-      <%= link_to 'Editar esta Cuenta', edit_usuario_path(@usuario) %> |-|
-      <%= link_to 'Agregar un nuevo Centro de Salud', new_centro_path %> |-|
-      <%= link_to 'Ver todos los Centros de Salud en DocTico', centros_path %> |-|
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
 
-      <% if @current_user.administrador? %>
-        <%= link_to 'Ver todos los usuarios', usuarios_path %>|-|
-      <% end %>
-  
-      <%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  |-|
+            <li><%= link_to @current_user.email, usuario_path(current_user) %></li>
+        </ul>
 
-      <%= link_to "Eliminar esta Cuenta", @usuario, method: :delete,
-                                  data: { confirm: "Esta seguro de eliminar la cuenta?" } %>
-    <% end %>
+      <ul class="nav navbar-nav navbar-right">
 
+              <% if @current_user == @usuario %>
 
-<% if @usuario.centros.any? %>
-			<div class="panel panel-warning">
+                  <li><%= link_to 'Editar esta Cuenta', edit_usuario_path(@usuario) %> </li>
+                  <li><%= link_to "Eliminar esta Cuenta", @usuario, method: :delete,  
+                                     data: { confirm: "Esta seguro de eliminar la cuenta?" } %></li>
+             <% end %>
 
-				<div class="panel-heading">
-					<h3 class="panel-title">Mis Centros de Salud (<%= @usuario.centros.count %>)</h3>
-				</div>
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
+
+  <div class="panel panel-success">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <% if current_user == @usuario%>
+          <%= link_to 'Agregar un nuevo Centro de Salud', new_centro_path %> |-|
+          <%= link_to 'Ver todos los Centros de Salud en DocTico', centros_path %> |-|
+
+          <% if @current_user.administrador? %>
+            <%= link_to 'Ver todos los usuarios', usuarios_path %>|-|
+          <% end %>
+        <% end %>
+      </h3>
+    </div>
+	
+   <% if @current_user != @usuario %>
+            <p>Nombre de Usuario: <%=@current_user.nombre%></p>
+            <p>Email: <%=@current_user.email%></p>
+   <% end %>
+
+    <div class="panel-body">
+      <% if @usuario.centros.any? %>
+        <div class="panel panel-success">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Mis Centros de Salud (<%= @usuario.centros.count %>)</h3>
+          </div>
 				
-				<div class="panel-body">
+          <div class="panel-body">
 				
-					<div align="center" style="height: 359px; overflow: auto;">
+            <div align="center" style="height: 405px; overflow: auto;">
 					
-						<table class="table table-striped">
-							<tr>		
-                <th>Nombre</th>
-                <th>Longitud</th>
-                <th>Latitud</th>
-                <th>Tipo</th>
-                <th>Horario</th>
-                <th>Descripcion</th>
-							</tr>
+              <table class="table table-striped">
+                <tr>		
+                  <th>Nombre</th>
+                  <th>Longitud</th>
+                  <th>Latitud</th>
+                  <th>Tipo</th>
+                  <th>Horario</th>
+                  <th>Descripcion</th>
+                  <th></th>
+                  <th></th>
+                </tr>
 
-			 <%= render @centros %>
+			         <%= render @centros %>
 
-						</table>
-					</div>
-						</div>
-			</div>
-<% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

@@ -1,25 +1,42 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
 
-<h1>Lista de los Centros de Salud de <%= link_to 'DocTico', root_path %></h1>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Longitud</th>
-    <th>Latitud</th>
-    <th>Tipo</th>
-    <th>Horario</th>
-    <th>Descripcion</th>
-  </tr>
- 
-  <% @centros.each do |centro| %>
-    <tr>
-      <td><%= centro.nombre %></td>
-      <td><%= centro.longitud %></td>
-      <td><%= centro.latitud %></td>
-      <td><%= centro.tipo %></td>
-      <td><%= centro.horario %></td>
-      <td><%= centro.descripcion %></td>s
-      </tr>
-  <% end %>
-</table>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+<div class="panel panel-success">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Lista de los Centros de Salud de <%= link_to 'DocTico', root_path %>: (<%= @centros.count %>)</h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
+					
+              <table class="table table-striped">
+                <tr>		
+                  <th>Nombre</th>
+                  <th>Longitud</th>
+                  <th>Latitud</th>
+                  <th>Tipo</th>
+                  <th>Horario</th>
+                  <th>Descripcion</th>
+                </tr>
+
+			         <%= render @centros %>
+
+              </table>
+            </div>
+         </div>
+</div>

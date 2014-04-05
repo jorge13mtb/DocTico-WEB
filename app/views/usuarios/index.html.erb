@@ -1,36 +1,57 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
 
-<h1>Lista de Usuarios de <%= link_to 'DocTico', root_path %></h1>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
 
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.nombre %></td>
-        <td><%= usuario.email %></td>
-        <td><%= link_to 'Mostrar Perfil', usuario %></td>
 
-        <% if !current_user.nil? %>
+<div class="panel panel-success">
 
-        <td>  <% if current_user.administrador? && !current_user?(usuario) %>
-        | <%= link_to "Eliminar esta Cuenta", usuario, method: :delete,
-                                  data: { confirm: "Esta seguro de eliminar esta cuenta?" } %>
-        <% end %></td>
+          <div class="panel-heading">
+            <h3 class="panel-title">Lista de Usuarios de <%= link_to 'DocTico', root_path %>: (<%= @usuarios.count %>)</h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
+					
+              <table class="table table-striped">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
 
-        <% end %>
+                    <% @usuarios.each do |usuario| %>
+                      <tr>
+                        <td><%= usuario.nombre %></td>
+                        <td><%= usuario.email %></td>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</table>
+                          <td><%= link_to usuario do %>
+                              <span class="glyphicon glyphicon-new-window"></span>
+                          <% end %></td>
+
+                        <% if !current_user.nil? %>
+                        <td>  <% if current_user.administrador? && !current_user?(usuario) %>
+                            <td><%= link_to usuario, :method => :delete, :confirm => "Esta seguro de eliminar esta cuenta?" do %>
+                              <span class="glyphicon glyphicon-trash"></span>
+                            <% end %> </td> 
+                        <% end %>
+                    <% end %>
+
+                      </tr>
+                    <% end %>
+
+              </table>
+            </div>
+         </div>
+</div>
