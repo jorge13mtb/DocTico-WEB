@@ -1,9 +1,26 @@
-<h1>Crear una cuenta en <%= link_to 'DocTico', root_path %></h1>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to 'DocTico', root_path %></li>
+        </ul>
+    </div>
+</nav>
 
-<%= render 'form' %>
+<div class="panel panel-success">
 
-<p>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center> Crear una cuenta en <%= link_to 'DocTico', root_path %> </center> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-<%= link_to 'Ir a DocTico.com', root_path %>
+              <%= render 'form' %>
 
-</p>
+              <p>
+              <%= link_to 'Ir a DocTico.com', root_path %>
+              </p>
+            </div>
+         </div>
+</div>

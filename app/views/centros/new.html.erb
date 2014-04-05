@@ -14,52 +14,65 @@
 
 
 
-<h1>Nuevo Centro de Salud en <%= link_to 'DocTico', root_path %></h1>
+<div class="panel panel-success">
 
-<%= form_for :centros, url: centros_path do |f| %>
-  
-<% if @centro.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@centro.errors.count, "error") %> no se puede guardar:</h2>
-    <ul>
-    <% @centro.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center> Nuevo Centro de Salud en <%= link_to 'DocTico', root_path %> </center> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-  <p>
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </p>
- 
-  <p>
-    <%= f.label :longitud %><br>
-    <%= f.text_field :longitud %>
-  </p>
 
-  <p>
-    <%= f.label :latitud %><br>
-    <%= f.text_field :latitud %>
-  </p>
+              <%= form_for :centros, url: centros_path do |f| %>
+                
+              <% if @centro.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@centro.errors.count, "error") %> no se puede guardar:</h2>
+                  <ul>
+                  <% @centro.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+                <% end %>
 
-  <p>
-    <%= f.label :tipo_de_centro %><br>
-    <%= f.text_field :tipo %>
-  </p>
+                <p>
+                  <%= f.label :nombre %><br>
+                  <%= f.text_field :nombre %>
+                </p>
+               
+                <p>
+                  <%= f.label :longitud %><br>
+                  <%= f.text_field :longitud %>
+                </p>
 
-  <p>
-    <%= f.label :horario %><br>
-    <%= f.text_area :horario %>
-  </p>
+                <p>
+                  <%= f.label :latitud %><br>
+                  <%= f.text_field :latitud %>
+                </p>
 
-  <p>
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </p>
- 
-  <p>
-    <%= f.submit "Crear nuevo Centro de Salud"%>
-  </p>
-<% end %>
+                <p>
+                  <%= f.label :tipo_de_centro %><br>
+                  <%= f.text_field :tipo %>
+                </p>
+
+                <p>
+                  <%= f.label :horario %><br>
+                  <%= f.text_area :horario %>
+                </p>
+
+                <p>
+                  <%= f.label :descripcion %><br>
+                  <%= f.text_area :descripcion %>
+                </p>
+               
+                <p>
+                  <%= f.submit "Crear nuevo Centro de Salud"%>
+                </p>
+              <% end %>
+
+            </div>
+         </div>
+</div>

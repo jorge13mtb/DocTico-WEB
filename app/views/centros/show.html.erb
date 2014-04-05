@@ -1,35 +1,59 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
 
-<h1>Centro de salud: <%= @centro.nombre %></h1>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @centro.nombre %>
-</p>
- 
-<p>
-  <strong>Longitud:</strong>
-  <%= @centro.longitud %>
-</p>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
 
-<p>
-  <strong>Latitud:</strong>
-  <%= @centro.latitud %>
-</p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @centro.tipo %>
-</p>
 
-<p>
-  <strong>Horario:</strong>
-  <%= @centro.horario %>
-</p>
+<div class="panel panel-success">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @centro.descripcion %>
-</p>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center>Centro de salud: <%= @centro.nombre %> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-<%= link_to 'Editar Datos', edit_centro_path(@centro) %>
+                <p>
+                  <strong>Nombre:</strong>
+                  <%= @centro.nombre %>
+                </p>
+                 
+                <p>
+                  <strong>Longitud:</strong>
+                  <%= @centro.longitud %>
+                </p>
+
+                <p>
+                  <strong>Latitud:</strong>
+                  <%= @centro.latitud %>
+                </p>
+
+                <p>
+                  <strong>Tipo:</strong>
+                  <%= @centro.tipo %>
+                </p>
+
+                <p>
+                  <strong>Horario:</strong>
+                  <%= @centro.horario %>
+                </p>
+
+                <p>
+                  <strong>Descripcion:</strong>
+                  <%= @centro.descripcion %>
+                </p>
+
+                <%= link_to 'Editar Datos', edit_centro_path(@centro) %>
+            </div>
+         </div>
+</div>

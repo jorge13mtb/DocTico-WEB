@@ -1,21 +1,45 @@
-<h1>Iniciar Sesion en <%= link_to 'DocTico', root_path %></h1>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to 'DocTico', root_path %></li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+           <li> <%= link_to "Crea tu propia cuenta en DocTico!", signup_path %></li>
+      </ul>
+    </div>
+</nav>
 
-    <%= form_for(:sesion, url: sesiones_path) do |f| %>
 
-     <p>
-       <%= f.label :email %>  <br>
-       <%= f.text_field :email %>
-     </p>
+<div class="panel panel-success">
 
-     <p>
-       <%= f.label :password, "Contraseña" %>  <br>
-       <%= f.password_field :password %>
-     </p>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center> Iniciar Sesion en <%= link_to 'DocTico', root_path %> </center> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-     <p>
-       <%= f.submit "Iniciar Sesion"%>
-     </p>
+                <%= form_for(:sesion, url: sesiones_path) do |f| %>
 
-    <% end %>
+                 <p>
+                   <%= f.label :email %>  <br>
+                   <%= f.text_field :email %>
+                 </p>
 
-    <p>Eres un nuevo usuario? <%= link_to "Crea tu propia cuenta en DocTico!", signup_path %></p>
+                 <p>
+                   <%= f.label :password, "Contraseña" %>  <br>
+                   <%= f.password_field :password %>
+                 </p>
+
+                 <p>
+                   <%= f.submit "Iniciar Sesion"%>
+                 </p>
+
+                <% end %>
+
+                <p>Eres un nuevo usuario? <%= link_to "Crea tu propia cuenta en DocTico!", signup_path %></p>
+
+            </div>
+         </div>
+</div>

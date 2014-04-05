@@ -1,50 +1,72 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
 
-<h1>Editando el centro de salud</h1>
- 
-<%= form_for :centro, url: centro_path(@centro), method: :patch do |f| %>
-  <% if @centro.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@centro.errors.count, "error") %> Hay errores:</h2>
-    <ul>
-    <% @centro.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
 
-  <p>
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </p>
- 
-  <p>
-    <%= f.label :longitud %><br>
-    <%= f.text_field :longitud %>
-  </p>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
+      </ul>
+    </div>
+</nav>
 
-  <p>
-    <%= f.label :latitud %><br>
-    <%= f.text_field :latitud %>
-  </p>
+<div class="panel panel-success">
 
-  <p>
-    <%= f.label :tipo_de_centro %><br>
-    <%= f.text_field :tipo %>
-  </p>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center>Editando el centro de salud <%= @centro.nombre %> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-  <p>
-    <%= f.label :horario %><br>
-    <%= f.text_area :horario %>
-  </p>
+              <%= form_for :centro, url: centro_path(@centro), method: :patch do |f| %>
+                <% if @centro.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@centro.errors.count, "error") %> Hay errores:</h2>
+                  <ul>
+                  <% @centro.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+                <% end %>
 
-  <p>
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </p>
- 
-  <p>
-    <%= f.submit 'Actualizar los Datos del Centro' %>
-  </p>
-<% end %>
+                <p>
+                  <%= f.label :nombre %><br>
+                  <%= f.text_field :nombre %>
+                </p>
+               
+                <p>
+                  <%= f.label :longitud %><br>
+                  <%= f.text_field :longitud %>
+                </p>
+
+                <p>
+                  <%= f.label :latitud %><br>
+                  <%= f.text_field :latitud %>
+                </p>
+
+                <p>
+                  <%= f.label :tipo_de_centro %><br>
+                  <%= f.text_field :tipo %>
+                </p>
+
+                <p>
+                  <%= f.label :horario %><br>
+                  <%= f.text_area :horario %>
+                </p>
+
+                <p>
+                  <%= f.label :descripcion %><br>
+                  <%= f.text_area :descripcion %>
+                </p>
+               
+                <p>
+                  <%= f.submit 'Actualizar los Datos del Centro' %>
+                </p>
+              <% end %>
+            </div>
+         </div>
+</div>

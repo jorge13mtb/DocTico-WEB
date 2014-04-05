@@ -1,41 +1,65 @@
-<%= link_to @current_user.nombre, usuario_path(current_user) %>
+<nav class="navbar navbar-default" role="navigation">
 
-<h1>Editar mi Cuenta de <%= link_to 'DocTico', root_path %></h1>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to @current_user.nombre, usuario_path(current_user) %></li>
+        </ul>
 
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "errore") %> por lo cual no se puede actualizar los datos la cuenta:</h2>
-
-      <ul>
-      <% @usuario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Cerrar Sesion", signout_path, method: "delete" %>  </li>
       </ul>
     </div>
-  <% end %>
+</nav>
 
-  <p>
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </p>
 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
+<div class="panel panel-success">
 
-  <p>
-    <%= f.label :password, "Contraseña" %><br>
-    <%= f.password_field :password %>
-  </p>
+          <div class="panel-heading">
+            <h3 class="panel-title"><center>Editar mi Cuenta de <%= link_to 'DocTico', root_path %> </h3>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 495px; overflow: auto;">
 
-  <p>
-    <%= f.label :password_confirmation, "Confirmar Contraseña" %><br>
-    <%= f.password_field :password_confirmation %>
-  </p>
+              <%= form_for(@usuario) do |f| %>
+                <% if @usuario.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@usuario.errors.count, "errore") %> por lo cual no se puede actualizar los datos la cuenta:</h2>
 
-  <p>
-    <%= f.submit 'Actualizar mis Datos' %>
-  </p>
- <% end %>
+                    <ul>
+                    <% @usuario.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <p>
+                  <%= f.label :nombre %><br>
+                  <%= f.text_field :nombre %>
+                </p>
+
+                <p>
+                  <%= f.label :email %><br>
+                  <%= f.text_field :email %>
+                </p>
+
+                <p>
+                  <%= f.label :password, "Contraseña" %><br>
+                  <%= f.password_field :password %>
+                </p>
+
+                <p>
+                  <%= f.label :password_confirmation, "Confirmar Contraseña" %><br>
+                  <%= f.password_field :password_confirmation %>
+                </p>
+
+                <p>
+                  <%= f.submit 'Actualizar mis Datos' %>
+                </p>
+               <% end %>
+
+            </div>
+         </div>
+</div>

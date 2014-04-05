@@ -1,12 +1,35 @@
-<h1>DocTico</h1>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><%= link_to 'DocTico', root_path %></li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+           <li> <%= link_to "Crea tu propia cuenta en DocTico!", signup_path %></li>
+      </ul>
+    </div>
+</nav>
 
-<h1 class="form-signin-heading">DocTico</h1>
-<p>DocTico, la Aplicacion que te permite encontrar los centros de salud mas cercanos a tu poscision actual</p>
 
-<%= link_to 'Iniciar Sesion', signin_path %>
+<div class="panel panel-success">
 
-<%= link_to 'Crear una Cuenta', signup_path %>
+          <div class="panel-heading">
+            <h1 class="panel-title"> <center><h2>DocTico</h2> </center> </h1>
+          </div>
+				
+          <div class="panel-body">
+				
+            <div align="center" style="height: 450px; overflow: auto;">
 
-<% if !current_user.nil? %>
-  <%= link_to 'Mi Perfil', usuario_path(current_user) %>
-<% end %>
+                <p>DocTico, la Aplicacion para dispositivos android que te permite encontrar los centros de salud mas cercanos a tu poscision actual!!</p>
+
+                <% if current_user.nil? %>
+                  <p><%= link_to 'Iniciar Sesion', signin_path %></p>
+                  <p>Eres un nuevo usuario? <%= link_to "Crea tu propia cuenta en DocTico!", signup_path %></p>
+                <% end %>
+
+                <% if !current_user.nil? %>
+                   <p><%= link_to 'Mi Perfil', usuario_path(current_user) %></p>
+                <% end %>
+            </div>
+         </div>
+</div>
