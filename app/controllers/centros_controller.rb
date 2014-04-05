@@ -3,7 +3,7 @@ class CentrosController < ApplicationController
 
 def new
   @centro = Centro.new
-  @prueba = Centro.all
+  @tipos_centro = TipoCentro.all
 end
 
 def create
@@ -26,6 +26,7 @@ end
 
 def edit
   @centro = Centro.find(params[:id])
+  @tipos_centro = TipoCentro.all
 end
 
 def update

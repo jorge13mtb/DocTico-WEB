@@ -53,16 +53,10 @@
                   <%= f.text_field :latitud %>
                 </p>
 
-
                 <p>
                   <%= f.label :tipo_de_centro %><br>
-
-                  <%= f.select :tipo, @prueba.map{ |c| [c.nombre] } %>
+                  <%= f.select :tipo, @tipos_centro.map{ |tipo| [tipo.nombre] } %>
                 </p>
-
-
-
- 
 
                 <p>
                   <%= f.label :horario %><br>
