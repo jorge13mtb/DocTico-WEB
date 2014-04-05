@@ -1,3 +1,9 @@
 DocTico
 
 DocTico, la Aplicacion para dispositivos android que te permite encontrar los centros de salud mas cercanos a tu poscision actual!!
+
+Este es el sitio administrador que permite agregar los centros de salud.
+
+Este es un proyecto para el curso electivo de Desarrollo de Aplicaciones Moviles
+
+Impartido en el ITCR el Primer semestre del 2014
