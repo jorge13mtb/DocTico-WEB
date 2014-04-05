@@ -20,7 +20,7 @@ def show
 end
 
 def index
-  @centros = Centro.all
+   @centros = Centro.all
 end
 
 def edit
