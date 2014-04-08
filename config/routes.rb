@@ -1,4 +1,6 @@
 DocTico::Application.routes.draw do
+  match '/api/centros/index',  to: 'api/centros#index',         via: 'get'
+
   resources :usuarios
 
   get "welcome/index"
