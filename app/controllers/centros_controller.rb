@@ -1,5 +1,5 @@
 class CentrosController < ApplicationController
-  before_action :signed_in_user
+#  before_action :signed_in_user
 
 def new
   @centro = Centro.new
