@@ -6,12 +6,14 @@ class Api::CentrosController < ApplicationController
   def autenticar_usuario
    @mensaje = Mensaje.new
 
-    usuario = Usuario.find_by Email: params[:email]
-    if usuario && usuario.authenticate(params[:password])
-      @mensaje.respuesta = "Si"
-    else
-      @mensaje.respuesta = "No"
-   end
+    @usuario = Usuario.find_by Email: params[:email]
+   
+   #  usuario = Usuario.find_by Email: params[:email]
+   # if usuario && usuario.authenticate(params[:password])
+   #   @mensaje.respuesta = "Si"
+   # else
+   #   @mensaje.respuesta = "No"
+   #end
   end
 end
 
