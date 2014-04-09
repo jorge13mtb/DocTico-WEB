@@ -1,5 +1,6 @@
 class Api::ApiDocTicoController < ApplicationController
   def autenticar_usuario
+    @usuarios = Usuario.all
   end
 
   def centros_salud
