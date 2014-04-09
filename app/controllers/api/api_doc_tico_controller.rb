@@ -4,9 +4,10 @@ class Api::ApiDocTicoController < ApplicationController
 
     usuario = Usuario.find_by Email: params[:email]
     if usuario && usuario.authenticate(params[:password])
-      @mensaje.respuesta = "Si"
-    else
-      @mensaje.respuesta = "No"
+      @user = Usuario.find_by Email: params[:email]
+ #    @mensaje.respuesta = "Si"
+#    else
+ #     @mensaje.respuesta = "No"
     end
   end
 
