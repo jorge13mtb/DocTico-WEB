@@ -1,6 +1,13 @@
 class Api::ApiDocTicoController < ApplicationController
   def autenticar_usuario
-    @usuarios = Usuario.all
+    @mensaje = Mensaje.new
+
+    usuario = Usuario.find_by Email: params[:email]
+    if usuario && usuario.authenticate(params[:password])
+      @mensaje.respuesta = "Si"
+    else
+      @mensaje.respuesta = "No"
+    end
   end
 
   def centros_salud
@@ -18,4 +25,12 @@ class Api::ApiDocTicoController < ApplicationController
 
   def nueva_presion_arterial
   end
+end
+
+
+# Esta clase es para devolver el token
+# Estoy usando la geme jsonBuilder
+class Mensaje
+  attr_accessor :respuesta
+  @respuesta
 end
