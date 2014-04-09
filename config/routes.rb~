@@ -1,5 +1,6 @@
 DocTico::Application.routes.draw do
   match '/api/centros/index',  to: 'api/centros#index',                 via: 'get'
+  match '/api/centros/usuarios',  to: 'api/centros#usuarios',           via: 'get'
   match '/api/centros/autenticar_usuario',  to: 'api/centros#autenticar_usuario',  via: 'get'
 
   resources :usuarios
