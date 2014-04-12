@@ -1,16 +1,13 @@
 class Api::ApiDocTicoController < ApplicationController
   def autenticar_usuario
-   # @mensaje = Mensaje.new
+    @mensaje = Mensaje.new
 
-#  @usuario = Usuario.find(3)
-
-    @usuario = Usuario.find_by email: params[:email]
-    #if usuario && usuario.authenticate(params[:password])
-     # @user = Usuario.find_by Email: params[:email]
- #    @mensaje.respuesta = "Si"
-#    else
- #     @mensaje.respuesta = "No"
-#    end
+    usuario = Usuario.find_by email: params[:email]
+    if usuario && usuario.authenticate(params[:password])
+      @mensaje.respuesta = "Si"
+    else
+      @mensaje.respuesta = "No"
+    end
   end
 
   def centros_salud
