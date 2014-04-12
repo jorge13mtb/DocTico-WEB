@@ -8,10 +8,6 @@ DocTico::Application.routes.draw do
   match '/api/api_doc_tico/presion_arterial',       to: 'api/api_doc_tico#presion_arterial',       via: 'get' 
   match '/api/api_doc_tico/nueva_presion_arterial', to: 'api/api_doc_tico#nueva_presion_arterial', via: 'get' 
 
-
-  match '/api/centros/index',  to: 'api/centros#index',                 via: 'get'
-  match '/api/centros/autenticar_usuario',  to: 'api/centros#autenticar_usuario',  via: 'get'
-
   resources :usuarios
 
   get "welcome/index"
