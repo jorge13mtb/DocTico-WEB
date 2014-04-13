@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora: MyString
+  fecha: MyString
+  sistolica: 1
+  diastolica: 1
+  usuario_id: 1
+
+two:
+  hora: MyString
+  fecha: MyString
+  sistolica: 1
+  diastolica: 1
+  usuario_id: 1

@@ -26,6 +26,7 @@ class Api::ApiDocTicoController < ApplicationController
     return true if usuario
   end
 
+
   def cerrar_sesion
     @mensaje = Mensaje.new
     @mensaje.respuesta = "No"
@@ -42,18 +43,37 @@ class Api::ApiDocTicoController < ApplicationController
     @centros = Centro.all if validar_token params[:token]
   end
 
+
   def citas
   end
+
 
   def nueva_cita
   end
 
+
   def presion_arterial
+    usuario = Usuario.find_by token_app_movil: params[:token]
+    @muestras = nil
+    if usuario 
+      @muestras = usuario.presion_arterials
+    end
+
   end
+
 
   def nueva_presion_arterial
-  end
+    @mensaje = Mensaje.new
+    @mensaje.respuesta = "No"
 
+    usuario = Usuario.find_by token_app_movil: params[:token]
+    if usuario
+      muestra_presion = usuario.presion_arterials.build(:hora => "hora", :fecha => "i", 
+                                                        :sistolica => 140, :diastolica => 39)
+      @mensaje.respuesta = "Si" if muestra_presion.save
+    end
+
+  end
 
   private
 
