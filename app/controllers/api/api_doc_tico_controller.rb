@@ -26,10 +26,16 @@ class Api::ApiDocTicoController < ApplicationController
     return true if usuario
   end
 
-  def cerrar_sesion token
-    usuario = Usuario.find_by token_app_movil: token
-    usuario.update_attribute :token_app_movil, Usuario.hash(Usuario.new_remember_token)
-  end
+  def cerrar_sesion
+    @mensaje = Mensaje.new
+    @mensaje.respuesta = "No"
+
+    usuario = Usuario.find_by token_app_movil: params[:token]
+    if usuario
+      usuario.update_attribute :token_app_movil, Usuario.hash(Usuario.new_remember_token)
+      @mensaje.respuesta = "Si"
+    end 
+ end
 
 
   def centros_salud
