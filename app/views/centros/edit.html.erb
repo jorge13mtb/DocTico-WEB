@@ -50,7 +50,7 @@
 
                 <p>
                   <%= f.label :tipo_de_centro %><br>
-                  <%= f.select :tipo, @tipos_centro.map{ |tipocentro| [tipocentro.nombre] } %>
+                  <%= f.text_field :tipo %>
                 </p>
 
                 <p>
