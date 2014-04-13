@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405062109) do
+ActiveRecord::Schema.define(version: 20140413005137) do
 
   create_table "centros", force: true do |t|
     t.string   "nombre"
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20140405062109) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "administrador"
+    t.string   "token_app_movil"
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
   add_index "usuarios", ["remember_token"], name: "index_usuarios_on_remember_token"
+  add_index "usuarios", ["token_app_movil"], name: "index_usuarios_on_token_app_movil"
 
 end
