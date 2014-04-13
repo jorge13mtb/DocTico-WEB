@@ -13,14 +13,11 @@ class Api::ApiDocTicoController < ApplicationController
 
   def nuevo_usuario
     @mensaje = Mensaje.new
+    @mensaje.respuesta = "No"
     @usuario = Usuario.new(:nombre => params[:nombre], :email => params[:email], :password => params[:password], 
                            :password_confirmation => params[:password_confirmation])
   
-    if @usuario.save
-      @mensaje.respuesta = "Si"
-    else
-      @mensaje.respuesta = "No"
-    end
+    @mensaje.respuesta = "Si" if @usuario.save
   end
 
 
@@ -51,8 +48,8 @@ class Api::ApiDocTicoController < ApplicationController
   def nueva_presion_arterial
   end
 
-  private
 
+  private
 
   def usuario_params
     params.require(:usuario).permit(:nombre, :email, :password, :password_confirmation)
