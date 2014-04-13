@@ -1,10 +1,11 @@
 class Api::ApiDocTicoController < ApplicationController
   def autenticar_usuario
     @mensaje = Mensaje.new
+    @mensaje.respuesta = ""
 
     usuario = Usuario.find_by email: params[:email]
     usuario.token_app_movil = Usuario.hash(Usuario.new_remember_token) if usuario && usuario.authenticate(params[:password])
-    @mensaje.respuesta = usuario.token_app_movil
+    @mensaje.respuesta = usuario.token_app_movil if usuario.token_app_movil != nil
   end
 
 
