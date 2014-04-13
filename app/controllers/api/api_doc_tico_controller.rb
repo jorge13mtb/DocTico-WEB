@@ -27,6 +27,11 @@ class Api::ApiDocTicoController < ApplicationController
     return true if usuario
   end
 
+  def cerrar_sesion token
+    usuario = Usuario.find_by token_app_movil: token
+    usuario.token_app_movil = Usuario.hash(Usuario.new_remember_token) 
+  end
+
 
   def centros_salud
     @centros = Centro.all
