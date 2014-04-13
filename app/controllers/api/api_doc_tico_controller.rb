@@ -20,6 +20,13 @@ class Api::ApiDocTicoController < ApplicationController
     end
   end
 
+
+  def validar_token token
+    usuario = Usuario.find_by token_app_movil: token
+    return true if usuario
+  end
+
+
   def centros_salud
     @centros = Centro.all
   end
