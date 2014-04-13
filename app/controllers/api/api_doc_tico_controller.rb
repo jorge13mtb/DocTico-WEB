@@ -68,8 +68,8 @@ class Api::ApiDocTicoController < ApplicationController
 
     usuario = Usuario.find_by token_app_movil: params[:token]
     if usuario
-      muestra_presion = usuario.presion_arterials.build(:hora => "hora", :fecha => "i", 
-                                                        :sistolica => 140, :diastolica => 39)
+      muestra_presion = usuario.presion_arterials.build(:hora => params[:hora], :fecha => params[:fecha], 
+                                                        :sistolica => params[:sistolica], :diastolica => params[:diastolica])
       @mensaje.respuesta = "Si" if muestra_presion.save
     end
 
