@@ -4,7 +4,9 @@ class Api::ApiDocTicoController < ApplicationController
     @mensaje.respuesta = ""
 
     usuario = Usuario.find_by email: params[:email]
-    usuario.token_app_movil = Usuario.hash(Usuario.new_remember_token) if usuario && usuario.authenticate(params[:password])
+    if usuario && usuario.authenticate(params[:password])
+      usuario.update_attribute :token_app_movil, Usuario.hash(Usuario.new_remember_token)
+    end
     @mensaje.respuesta = usuario.token_app_movil if usuario.token_app_movil != nil
   end
 
@@ -34,7 +36,7 @@ class Api::ApiDocTicoController < ApplicationController
 
 
   def centros_salud
-    @centros = Centro.all
+    @centros = Centro.all if validar_token params[:token]
   end
 
   def citas
