@@ -3,6 +3,7 @@ class Usuario < ActiveRecord::Base
   before_create :create_remember_token
   has_many :centros, dependent: :destroy
   has_many :presion_arterials, dependent: :destroy
+  has_many :citas, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,

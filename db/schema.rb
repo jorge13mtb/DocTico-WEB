@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413180416) do
+ActiveRecord::Schema.define(version: 20140415233953) do
 
   create_table "centros", force: true do |t|
     t.string   "nombre"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140413180416) do
     t.string   "tipo"
     t.text     "horario"
     t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "usuario_id"
+  end
+
+  create_table "cita", force: true do |t|
+    t.string   "identificador"
+    t.string   "hora"
+    t.string   "fecha"
+    t.string   "centro"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "usuario_id"

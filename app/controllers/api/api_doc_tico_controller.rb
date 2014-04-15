@@ -48,11 +48,26 @@ class Api::ApiDocTicoController < ApplicationController
     @centros = Centro.all if validar_token params[:token]
   end
 
+
   def citas
+    usuario = Usuario.find_by token_app_movil: params[:token]
+    @citas = nil
+    if usuario 
+      @citas = usuario.citas
+    end
   end
 
 
   def nueva_cita
+    @mensaje = Mensaje.new
+    @mensaje.respuesta = "No"
+
+    usuario = Usuario.find_by token_app_movil: params[:token]
+    if usuario
+      nueva_cita = usuario.citas.build(:identificador => params[:identificador], :hora => params[:hora], 
+                                       :fecha => params[:fecha], :centro => params[:centro]) 
+      @mensaje.respuesta = "Si" if nueva_cita.save
+    end
   end
 
 
@@ -76,6 +91,7 @@ class Api::ApiDocTicoController < ApplicationController
       @mensaje.respuesta = "Si" if muestra_presion.save
     end
   end
+
 
   private
 
