@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identificador: MyString
+  hora: MyString
+  fecha: MyString
+  centro: MyString
+
+two:
+  identificador: MyString
+  hora: MyString
+  fecha: MyString
+  centro: MyString
