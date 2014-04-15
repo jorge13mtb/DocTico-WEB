@@ -44,6 +44,10 @@ class Api::ApiDocTicoController < ApplicationController
   end
 
 
+  def nombres_centros_salud
+    @centros = Centro.all if validar_token params[:token]
+  end
+
   def citas
   end
 
@@ -58,7 +62,6 @@ class Api::ApiDocTicoController < ApplicationController
     if usuario 
       @muestras = usuario.presion_arterials
     end
-
   end
 
 
@@ -72,7 +75,6 @@ class Api::ApiDocTicoController < ApplicationController
                                                         :sistolica => params[:sistolica], :diastolica => params[:diastolica])
       @mensaje.respuesta = "Si" if muestra_presion.save
     end
-
   end
 
   private

@@ -4,6 +4,7 @@ DocTico::Application.routes.draw do
   match '/api/api_doc_tico/nuevo_usuario',          to: 'api/api_doc_tico#nuevo_usuario',          via: 'get'
   match '/api/api_doc_tico/cerrar_sesion',          to: 'api/api_doc_tico#cerrar_sesion',          via: 'get'  
   match '/api/api_doc_tico/centros_salud',          to: 'api/api_doc_tico#centros_salud',          via: 'get'
+  match '/api/api_doc_tico/nombres_centros_salud',  to: 'api/api_doc_tico#nombres_centros_salud',  via: 'get'
   match '/api/api_doc_tico/citas',                  to: 'api/api_doc_tico#citas',                  via: 'get' 
   match '/api/api_doc_tico/nueva_cita',             to: 'api/api_doc_tico#nueva_cita',             via: 'get' 
   match '/api/api_doc_tico/presion_arterial',       to: 'api/api_doc_tico#presion_arterial',       via: 'get' 
